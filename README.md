@@ -5,13 +5,19 @@ PCが変わっても、このリポジトリ経由でいつでも最新のルー
 
 ## 新しいPCでのセットアップ（一行）
 
-PowerShell で以下を実行します。
+### Windows（PowerShell）
 
 ```powershell
 irm https://raw.githubusercontent.com/masaishi82/ai-project-template/main/install.ps1 | iex
 ```
 
-これで `init-rules` コマンドが PowerShell プロファイルに登録されます。
+### Mac / Linux（zsh・bash）
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/masaishi82/ai-project-template/main/install.sh | bash
+```
+
+どちらも `init-rules` コマンドがシェルに登録されます（Windows は PowerShell プロファイル、Mac/Linux は `~/.zshrc` または `~/.bashrc`）。
 
 ## 使い方
 
@@ -27,7 +33,8 @@ init-rules -Force   # 既存ファイルを上書き
 | ファイル | 役割 |
 | --- | --- |
 | `AI_PROJECT_RULES.md` | マスターとなるルールファイル本体 |
-| `install.ps1` | `init-rules` 関数を登録するインストーラ |
+| `install.ps1` | Windows（PowerShell）用インストーラ |
+| `install.sh` | Mac / Linux（zsh・bash）用インストーラ |
 
 ルールを更新したいときは、このリポジトリの `AI_PROJECT_RULES.md` を編集して push するだけ。
 以後 `init-rules` は常に最新版を取得します。
